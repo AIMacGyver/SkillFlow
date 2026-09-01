@@ -1,0 +1,39 @@
+name: Feature request
+description: Suggest a new skill, recipe, or framework capability
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: Describe the capability you want. Prefer small, reusable skills over one-off prompt changes.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What are you trying to do that SkillFlow does not support yet?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: How should this work? If it is a new skill, sketch the Input/Output models.
+    validations:
+      required: true
+  - type: dropdown
+    id: layer
+    attributes:
+      label: Where does this belong?
+      options:
+        - Skill (reusable, stable component)
+        - Specificity (prompt or instruction file)
+        - Recipe / runner
+        - Tooling or docs
+        - Not sure
+    validations:
+      required: true
+  - type: textarea
+    id: extras
+    attributes:
+      label: Additional context
+      description: Examples, related issues, or constraints.
