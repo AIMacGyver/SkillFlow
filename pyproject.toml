@@ -6,6 +6,8 @@ readme = "README.md"
 authors = [{ name = "SkillFlow contributors" }]
 requires-python = ">=3.12"
 dependencies = [
+    "ddgs>=9.0.0",
+    "openai>=1.0.0",
     "pydantic>=2.0.0",
     "pyyaml>=6.0.0",
 ]
@@ -27,7 +29,7 @@ dev = [
 [tool.ruff]
 line-length = 120
 target-version = "py312"
-src = ["src", "tests"]
+src = ["src", "tests", "skills", "recipes"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B", "SIM", "D"]
@@ -37,6 +39,7 @@ convention = "google"
 
 [tool.ruff.lint.per-file-ignores]
 "tests/**" = ["D"]
+"recipes/**" = ["E402"]
 
 [tool.ruff.format]
 quote-style = "double"
@@ -45,5 +48,5 @@ line-ending = "lf"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-pythonpath = ["src"]
+pythonpath = ["src", "."]
 addopts = ["-q"]
