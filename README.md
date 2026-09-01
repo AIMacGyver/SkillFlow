@@ -50,6 +50,16 @@ export SKILLFLOW_LLM_API_KEY=sk-...
 export SKILLFLOW_LLM_MODEL=gpt-4.1-mini
 ```
 
+## Testing
+
+Tests stay offline. They check contracts, specificity loading, runner logs, and the research recipe with a stub LLM plus a fake search client.
+
+```bash
+make test
+# or
+uv run pytest
+```
+
 ## Development
 
 Requires [uv](https://docs.astral.sh/uv/) and Python 3.12+.

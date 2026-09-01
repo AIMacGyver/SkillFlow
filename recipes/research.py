@@ -11,17 +11,21 @@ if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
 from skills.extract import ExtractSkill
-from skills.search import SearchInput, SearchSkill
+from skills.search import SearchClient, SearchInput, SearchSkill
 from skills.summarize import SummarizeOutput, SummarizeSkill
 
 from skillflow import LLMClient, OpenAICompatibleClient, Recipe, Runner, load_specificity
 
 
-def build_research_recipe(llm: LLMClient | None = None) -> Recipe:
+def build_research_recipe(
+    llm: LLMClient | None = None,
+    search_client: SearchClient | None = None,
+) -> Recipe:
     """Compose the example research recipe.
 
     Args:
         llm: Optional chat client. Defaults to the local OpenAI-compatible client.
+        search_client: Optional search backend. Defaults to DuckDuckGo.
 
     Returns:
         A linear Search → Extract → Summarize recipe.
@@ -35,7 +39,7 @@ def build_research_recipe(llm: LLMClient | None = None) -> Recipe:
     return Recipe(
         name="research",
         skills=[
-            SearchSkill(),
+            SearchSkill(client=search_client),
             ExtractSkill(llm=client, specificity=extract_spec),
             SummarizeSkill(llm=client, specificity=summarize_spec),
         ],
