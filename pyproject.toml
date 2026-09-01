@@ -5,7 +5,9 @@ description = "A minimal Kubeflow-style framework for composing reusable agent s
 readme = "README.md"
 authors = [{ name = "SkillFlow contributors" }]
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "pydantic>=2.0.0",
+]
 
 [build-system]
 requires = ["hatchling"]
