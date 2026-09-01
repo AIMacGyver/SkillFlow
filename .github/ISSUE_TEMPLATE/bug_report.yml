@@ -1,0 +1,42 @@
+name: Bug report
+description: Report unexpected behavior or a crash
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for helping Flo keep SkillFlow stable. Please include enough detail to reproduce the issue.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What did you expect, and what actually happened?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: A short, numbered list of steps.
+      placeholder: |
+        1. Run ...
+        2. Pass ...
+        3. See error ...
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Python version, OS, SkillFlow version, and whether you used a local Ollama model.
+      placeholder: |
+        - Python: 3.12
+        - OS: macOS
+        - SkillFlow: 0.1.0
+    validations:
+      required: true
+  - type: textarea
+    id: extra
+    attributes:
+      label: Additional context
+      description: Logs, contract errors, or related PRs.
